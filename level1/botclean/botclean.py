@@ -21,7 +21,8 @@ def decide_move(posx, posy, board):
         return "CLEAN"
 
     current_coordinates = (posx, posy)
-    queue =  collections.deque().append(current_coordinates)
+    queue =  collections.deque()
+    queue.append(current_coordinates)
     checked_grid = [["-" for i in range(5)] for j in range(5)]
     checked_grid[posx][posy] = "c"
     return determine_next_move(current_coordinates, calculate_target_cell(queue, checked_grid))

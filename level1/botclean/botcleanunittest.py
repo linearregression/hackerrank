@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import unittest
 import botclean
+import collections
 
 __author__ = 'njohnson'
 
@@ -64,6 +65,10 @@ class BotCleanTests(unittest.TestCase):
         self.assertEquals("LEFT", botclean.determine_next_move((0,1),(0,0)))
         self.assertEquals("DOWN", botclean.determine_next_move((0,0),(1,0)))
         self.assertEquals("UP", botclean.determine_next_move((1,0),(0,0)))
+
+    def test_empty_queue(self):
+        queue =  collections.deque()
+        self.assertEquals("DONE", botclean.calculate_target_cell(queue, self.grid))
 
 def main():
     unittest.main()
